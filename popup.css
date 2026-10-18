@@ -1,0 +1,18 @@
+body { 
+    width: 260px;
+    background-color: #c00c0c;
+    color: #998b8b;
+    padding: 20px;
+}
+h1 {
+    color: #350d0d;
+    text-shadow: 0px 0px 10px #c00c0c;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    accent-color: #ff0000;
+}
+
