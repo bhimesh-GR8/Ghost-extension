@@ -13,6 +13,8 @@ const images = [
 
 function spookify() {
     if (!enabled) return;
+    document.documentElement.classList.add("ghost-mode");
+
     document.querySelectorAll(THUMB_SELECTOR).forEach((img) => {
         if (img.src.startsWith("chrome-extension://")) return;
 
@@ -24,6 +26,8 @@ function spookify() {
 }
 
 function restore() {
+    document.documentElement.classList.remove("ghost-mode");
+
     document.querySelectorAll(THUMB_SELECTOR).forEach((img) => {
         if (img.dataset.originalSrc) {
             img.src = img.dataset.originalSrc;
@@ -50,7 +54,17 @@ chrome.storage.onChanged.addListener((changes, area) => {
     }
 });
 
-const observer = new MutationObserver(spookify);
+let scheduled = false;
+function scheduleSpookify() {
+    if (scheduled) return;
+    scheduled = true;
+    setTimeout(() => {
+        scheduled = false;
+        spookify();
+    }, 100);
+}
+
+const observer = new MutationObserver(scheduleSpookify);
 observer.observe(document.body, {
     childList: true,
     subtree: true,

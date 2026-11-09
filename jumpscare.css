@@ -1,0 +1,20 @@
+@keyframes ghost-fade {
+    0%, 40% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+.ghost-jumpscare {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 2147483647;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    animation: ghost-fade 1s ease-out forwards;
+}
+
+ghost-jumpscare img {
+  max-width: 100%;
+  max-height: 100%;
+}

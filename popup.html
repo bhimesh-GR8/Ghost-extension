@@ -6,10 +6,15 @@
     <link rel="stylesheet" href="popup.css">
     <title>Ghost Extension</title>
 </head>
-<body class="body">
-<h1>Ghost Extension</h1>
-<input type="checkbox" id="toggle"> 
-<label for="toggle">Enable Ghost Mode</label>
-<script src="popup.js"></script>
+<body>
+    <h1>Ghost Extension</h1>
+    <label><input type="checkbox" data-setting="thumbnails"> Scary thumbnails</label>
+    <label><input type="checkbox" data-setting="effects">Flicker & Hover</label>
+    <label><input type="checkbox" data-setting="vignette">Dark Vignette</label>
+    <label><input type="checkbox" data-setting="scare"> Jumpscares </label>
+
+    <button id="reset">Reset</button>
+
+    <script src="popup.js"></script>
 </body>
 </html>

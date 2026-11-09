@@ -1,5 +1,5 @@
 body { 
-    width: 260px;
+    width: 300px;
     background-color: #c00c0c;
     color: #998b8b;
     padding: 20px;
@@ -16,3 +16,24 @@ input[type="checkbox"] {
     accent-color: #ff0000;
 }
 
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button {
+    margin-top: 10px;
+    padding: 6px 14px;
+    background: #350d0d;
+    color: #998b8b;
+    border: 1px solid #c00c0c;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #c00c0c;
+    color: #fff;
+}

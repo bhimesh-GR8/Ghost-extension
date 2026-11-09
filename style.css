@@ -18,6 +18,40 @@
     }
 }
 
-.ghost-thumb {
+html.ghost-fx.ghost-thumb {
     animation: flicker 6s infinite;
+    transistion: transform 0.3s ease, filter 0.3s ease;
 }
+
+html.ghost-fx yt-thumbnail-view-model:hover img.ghost-thumb,
+html.ghost-fx ytd-thumbnail:hover img.ghost-thumb {
+    animation: none;
+    transform: scale(1.08);
+    filter: sepia(1) saturate(5) hue-rotate(-50deg) brightness(0.7);
+
+ }
+
+html.ghost-vignette::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2147483647;
+    background: radial-gradient(ellipse at center, transparent 55%, rgba(60, 0, 0, 05) 100%);
+ }
+
+ .ghost-jumpscare {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 2147483647;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+ }
+
+ .ghost-jumpscare img {
+    max-width: 100%;
+    max-height: 100%;
+ }
