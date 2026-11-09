@@ -19,9 +19,9 @@
     "service_worker": "background.js"
   },
   "icons": {
-    "16": "icons/i16.jpg",
-    "48": "icons/i48.jpg",
-    "128": "icons/i128.jpg"
+    "16": "icons/i16.png",
+    "48": "icons/i48.png",
+    "128": "icons/i128.png"
   },
   "permissions": [
     "storage",
@@ -29,9 +29,9 @@
   ],
   "action": {
     "default_icon": {
-      "16": "icons/i16.jpg",
-      "48": "icons/i48.jpg",
-      "128": "icons/i128.jpg"
+      "16": "icons/i16.png",
+      "48": "icons/i48.png",
+      "128": "icons/i128.png"
     },
     "default_popup": "popup.html"
   },
@@ -41,7 +41,7 @@
       "matches": ["https://www.youtube.com/*"]
     },
     {
-      "resources": ["images/scare.jpg"],
+      "resources": ["images/scare1.jpg"],
       "matches": ["http://*/*", "https://*/*"]
     }
   ]

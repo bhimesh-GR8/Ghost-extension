@@ -1,7 +1,8 @@
-let enabled = true;
-const THUMB_SELECTOR = "yt-thumbnail-view-model img, ytd-thumbnail img";
-
 console.log("Boo!");
+
+const THUMB_SELECTOR = "yt-thumbnail-view-model img, ytd-thumbnail img";
+const SETTING_DEFAULTS = { thumbnails: true, effects: true, vignette: true, scare: true };
+let settings = { ...SETTING_DEFAULTS };
 
 const images = [
     "images/img1.jpg",
@@ -11,9 +12,13 @@ const images = [
     "images/img5.jpg",
 ].map((path) => chrome.runtime.getURL(path));
 
-function spookify() {
-    if (!enabled) return;
-    document.documentElement.classList.add("ghost-mode");
+function applyRootClasses() {
+    document.documentElement.classList.toggle("ghost-fx", settings.effects);
+    document.documentElement.classList.toggle("ghost-vignette", settings.vignette);
+}
+
+function swapThumbnails() {
+    if (!settings.thumbnails) return;
 
     document.querySelectorAll(THUMB_SELECTOR).forEach((img) => {
         if (img.src.startsWith("chrome-extension://")) return;
@@ -25,9 +30,7 @@ function spookify() {
     });
 }
 
-function restore() {
-    document.documentElement.classList.remove("ghost-mode");
-
+function restoreThumbnails() {
     document.querySelectorAll(THUMB_SELECTOR).forEach((img) => {
         if (img.dataset.originalSrc) {
             img.src = img.dataset.originalSrc;
@@ -37,34 +40,43 @@ function restore() {
     });
 }
 
-chrome.storage.local.get({ enabled: true }, (result) => {
-    enabled = result.enabled;
-    spookify();
+function update() {
+    applyRootClasses();
+    if (settings.thumbnails) {
+        swapThumbnails();
+    } else {
+        restoreThumbnails();
+    }
+}
+
+chrome.storage.local.get(SETTING_DEFAULTS, (result) => {
+    settings = result;
+    update();
 });
 
 chrome.storage.onChanged.addListener((changes, area) => {
-    if (area !== "local" || !changes.enabled) return;
+    if (area !== "local") return;
 
-    enabled = changes.enabled.newValue;
-
-    if (enabled) {
-        spookify();
-    } else {
-        restore();
+    for (const key in changes) {
+        if (!(key in SETTING_DEFAULTS)) continue;
+        
+        settings[key] = changes[key].newValue ?? SETTING_DEFAULTS[key];
     }
+    update();
 });
 
+
 let scheduled = false;
-function scheduleSpookify() {
+function scheduleSwap() {
     if (scheduled) return;
     scheduled = true;
     setTimeout(() => {
         scheduled = false;
-        spookify();
+        swapThumbnails();
     }, 100);
 }
 
-const observer = new MutationObserver(scheduleSpookify);
+const observer = new MutationObserver(scheduleSwap);
 observer.observe(document.body, {
     childList: true,
     subtree: true,
