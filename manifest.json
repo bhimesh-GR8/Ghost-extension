@@ -6,13 +6,17 @@
   "content_scripts": [
     {
       "matches": ["https://www.youtube.com/*"],
-      "js": ["content.js"],
-      "css": ["style.css"]
+      "js": ["youtube/content.js"],
+      "css": ["youtube/style.css"]
     },
     {
       "matches": ["http://*/*", "https://*/*"],
-      "js": ["jumpscare.js", "skip.js", "ghost.js"],
-      "css": ["jumpscare.css", "ghost.css"]
+      "js": [
+          "allsites/skip.js",
+          "allsites/jumpscare.js",  
+          "allsites/ghost.js",
+          "allsites/trail.js"],
+      "css": ["allsites/jumpscare.css", "allsites/ghost.css"]
     }
   ],
   "background": {
@@ -34,7 +38,7 @@
       "48": "icons/i48.png",
       "128": "icons/i128.png"
     },
-    "default_popup": "popup.html"
+    "default_popup": "popup/popup.html"
   },
   "web_accessible_resources": [
     {

@@ -3,7 +3,7 @@ chrome.runtime.onMessage.addListener((message) => {
 
   
   console.log("Ghost: offscreen got the play request");
-  const audio = new Audio("sounds/scare.mp3");
+  const audio = new Audio(chrome.runtime.getURL("sounds/scare.mp3"));
   audio.volume = 1.0;
 
   audio.play().catch((err) => console.error("Ghost: audio failed:", err));

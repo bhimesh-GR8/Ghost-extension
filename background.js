@@ -9,7 +9,7 @@ async function ensureOffscreen() {
   if (!creating) {
     creating = chrome.offscreen
       .createDocument({
-        url: "offscreen.html",
+        url: "offscreen/offscreen.html",
         reasons: ["AUDIO_PLAYBACK"],
         justification: "Play the jump scare sound",
       })
