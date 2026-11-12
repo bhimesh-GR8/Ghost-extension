@@ -11,8 +11,8 @@
     },
     {
       "matches": ["http://*/*", "https://*/*"],
-      "js": ["jumpscare.js"],
-      "css": ["jumpscare.css"]
+      "js": ["jumpscare.js", "skip.js", "ghost.js"],
+      "css": ["jumpscare.css", "ghost.css"]
     }
   ],
   "background": {
@@ -25,7 +25,8 @@
   },
   "permissions": [
     "storage",
-    "offscreen"
+    "offscreen",
+    "activeTab"
   ],
   "action": {
     "default_icon": {
@@ -41,7 +42,7 @@
       "matches": ["https://www.youtube.com/*"]
     },
     {
-      "resources": ["images/scare1.jpg"],
+      "resources": ["images/scare1.jpg", "images/ghost.png"],
       "matches": ["http://*/*", "https://*/*"]
     }
   ]

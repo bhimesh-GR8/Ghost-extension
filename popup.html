@@ -8,13 +8,23 @@
 </head>
 <body>
     <h1>Ghost Extension</h1>
+    
     <label><input type="checkbox" data-setting="thumbnails"> Scary thumbnails</label>
     <label><input type="checkbox" data-setting="effects">Flicker & Hover</label>
     <label><input type="checkbox" data-setting="vignette">Dark Vignette</label>
     <label><input type="checkbox" data-setting="scare"> Jumpscares </label>
+    <label><input type="checkbox" data-setting = "ghosts">Floating Ghosts</label>
+
+    <hr>
+
+    <p id="site">Current site: <span id="host">...</span></p>
+    <button id="skip">Skip this site</button>
+    <ul id="skipList"></ul>
+
+    <hr>
 
     <button id="reset">Reset</button>
 
-    <script src="popup.js"></script>
+  <script src="popup.js"></script>
 </body>
 </html>

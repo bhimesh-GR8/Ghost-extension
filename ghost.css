@@ -1,0 +1,35 @@
+#ghost-layer {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 21474833645;
+}
+
+.ghost-float {
+    position: absolute;
+    left: 0;
+    top: var(--top);
+    width: var(--size);
+    height: auto;
+    opacity: 0;
+    user-select: none;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));
+    will-change: transform, translate, opacity;
+    animation: 
+        ghost-drift var(--dur) linear var(--delay) infinite,
+        ghost-bob 4s ease-in-out infinite alternate;
+}
+
+@keyframes ghost-drift {
+    0%   { translate: var(--from) 0; opacity: 0; }
+    8%                     { opacity: var(--op); }
+    92%                    { opacity: var(--op); }
+    100%   { translate: var(--to) 0; opacity: 0; }
+
+}
+
+@keyframes ghost-bob {
+    from { transform: translateY(-3vh) rotate(-4deg); }
+    to { transform: translateY(3vh) rotate(4deg); }
+}
