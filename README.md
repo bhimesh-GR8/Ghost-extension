@@ -28,7 +28,7 @@ It was built on scratch with Manifest V3, plain javascript and without any depen
 ## Install
  
 1. Download or clone this folder.
-2. Add your own media (see [Add your media](#add-your-media) below).
+2. Add your own media if you want to in the images folder and then edit it inn the content.js (keep it appropriate for ur own sake)
 3. Open `chrome://extensions` in Chrome (version 116 or newer).
 4. Turn on **Developer mode** in the top right.
 5. Click **Load unpacked** and select this folder, the one that contains `manifest.json`.
@@ -38,7 +38,7 @@ After changing any file, click the reload arrow on the extension's card. Then re
 
 ## Using it
  
--Click the extension icon to open the popup and tick or untick any feature. When you change thumbnails, flicker vignette, ghosts or the trail the extension updates away and you do not need to refresh the page.
+- Click the extension icon to open the popup and tick or untick any feature. When you change thumbnails, flicker vignette, ghosts or the trail the extension updates away and you do not need to refresh the page.
 
 - The jump scare only checks its setting when a page loads so unticking the jump scare stops the jump scare, not one already on screen.
 
@@ -74,3 +74,6 @@ ghost-extension/
 ## Privacy
  
 Everything stays on your computer. The extension makes no network requests, collects no data, and has no analytics. The only thing stored is your settings and skip list, in Chrome's local extension storage.
+
+# made with love by bhimesh and no one else
+im just very tuff gang.
