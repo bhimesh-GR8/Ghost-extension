@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="popup.css">
+  <title>Ghost Extension</title>
+</head>
+<body>
+  <h1>Ghost Extension</h1>
+
+  <label><input type="checkbox" data-setting="thumbnails"> Scary thumbnails</label>
+  <label><input type="checkbox" data-setting="effects"> Flicker &amp; hover</label>
+  <label><input type="checkbox" data-setting="vignette"> Dark vignette</label>
+  <label><input type="checkbox" data-setting="scare"> Jump scare</label>
+  <label><input type="checkbox" data-setting="ghosts"> Floating ghosts</label>
+  <label><input type="checkbox" data-setting="trail"> Cursor trail</label>
+
+  <hr>
+
+  <p id="site">Current site: <span id="host">...</span></p>
+  <button id="skip">Skip this site</button>
+  <ul id="skipList"></ul>
+
+  <hr>
+
+  <button id="reset">Reset</button>
+
+  <script src="popup.js"></script>
+</body>
+</html>

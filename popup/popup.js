@@ -4,6 +4,7 @@ const DEFAULTS = {
   vignette: true,
   scare: true,
   ghosts: true,
+  trail: true,
   skipSites: [],
 };
 
@@ -13,6 +14,7 @@ const skipBtn = document.getElementById("skip");
 const skipList = document.getElementById("skipList");
 let currentHost = null;
 
+// Same rule as skip.js: a listed site also covers its subdomains
 function covers(site) {
   return currentHost === site || currentHost.endsWith("." + site);
 }
@@ -28,10 +30,10 @@ function render(result) {
   sites.forEach((site) => {
     const li = document.createElement("li");
     li.textContent = site;
-    
+
     const remove = document.createElement("button");
-    remove.textContent = "Remove";
-    remove.title = "stop skipping " + site;
+    remove.textContent = "✕";
+    remove.title = "Stop skipping " + site;
     remove.addEventListener("click", () => {
       saveSites(sites.filter((s) => s !== site));
     });
@@ -44,17 +46,16 @@ function render(result) {
     skipBtn.disabled = false;
     const covering = sites.filter(covers);
     if (covering.length === 0) {
-      skipBtn.textContent = "skip this site";
-    } else if (covering.includes("stop skipping this site")) {
-      skipBtn.textContent = "stop skipping this site";
+      skipBtn.textContent = "Skip this site";
+    } else if (covering.includes(currentHost)) {
+      skipBtn.textContent = "Stop skipping this site";
     } else {
-      skipBtn.textContent = "stop skipping this site (via " + covering[0] + ")";
+      skipBtn.textContent = "Stop skipping this site (via " + covering[0] + ")";
     }
   } else {
     skipBtn.disabled = true;
-    skipBtn.textContent = "cant't skip this site";
+    skipBtn.textContent = "Can't skip this page";
   }
-  
 }
 
 function load() {
@@ -67,9 +68,15 @@ function saveSites(sites) {
 
 boxes.forEach((box) => {
   box.addEventListener("change", () => {
+    chrome.storage.local.set({ [box.dataset.setting]: box.checked });
+  });
+});
+
+skipBtn.addEventListener("click", () => {
+  chrome.storage.local.get({ skipSites: [] }, ({ skipSites }) => {
     const isSkipped = skipSites.some(covers);
     const next = isSkipped
-     ? skipSites.filter((s) => !covers(s))
+      ? skipSites.filter((s) => !covers(s))
       : [...skipSites, currentHost];
     saveSites(next);
   });
@@ -78,6 +85,7 @@ boxes.forEach((box) => {
 document.getElementById("reset").addEventListener("click", () => {
   chrome.storage.local.clear(() => load());
 });
+
 
 chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
   try {

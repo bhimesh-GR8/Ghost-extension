@@ -12,10 +12,11 @@
     {
       "matches": ["http://*/*", "https://*/*"],
       "js": [
-          "allsites/skip.js",
-          "allsites/jumpscare.js",  
-          "allsites/ghost.js",
-          "allsites/trail.js"],
+        "allsites/skip.js",
+        "allsites/jumpscare.js",
+        "allsites/ghost.js",
+        "allsites/trail.js"
+      ],
       "css": ["allsites/jumpscare.css", "allsites/ghost.css"]
     }
   ],
