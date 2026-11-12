@@ -11,19 +11,27 @@ It was built on scratch with Manifest V3, plain javascript and without any depen
 
 | **Scary thumbnails** | YouTube (home, search, Shorts, " next") | I notice Scary thumbnails replace normal video pictures with random scary pictures. When I turn thumbnails off the original pictures return. |
 
+
 | **Flicker & hover** | YouTube | I find Flicker & hover makes the swapped thumbnails glitch every seconds. When I hover over a thumbnail it zooms in. Turns bright red. |
+
 
 | **Dark vignette** | YouTube | I see Dark vignette adds a red shadow around the edges of the screen. |
 
+
 *Jump scare** | Every site | I watch Jump scare show a full-screen image and sound when a page loads. I click the image to dismiss it. It fades out by itself. |
+
 
 *Floating ghosts** | Every site | I notice Floating ghosts are translucent and drift and bob across the page. |
 
+
 | **Cursor trail** | Every site | I see Cursor trail shows glowing orange embers that drift up from the mouse. |
+
 
 | **Skip list** | Every site | I use Skip list to turn off the jump scare, ghosts and trail on sites I choose like my bank. Adding a site also covers its subdomains. |
 
+
 | | | Each feature has its checkbox in the popup. Reset puts everything back, to defaults.
+
 
 ## Install
  
