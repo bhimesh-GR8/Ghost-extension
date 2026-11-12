@@ -54,8 +54,8 @@ After changing any file, click the reload arrow on the extension's card. Then re
 
 - Chrome blocks extensions, on its own pages (`chrome://` and the Web Store) so nothing appears on those pages.
 
-```text
-ghost-extension/
+
+```ghost-extension/
 ├── manifest.json        Extension configuration (must stay at the top level)
 ├── background.js        Service worker: starts the hidden audio page and relays the sound request
 ├── youtube/
@@ -77,8 +77,7 @@ ghost-extension/
 │   └── offscreen.js     Plays the jump scare sound
 ├── images/
 ├── icons/
-└── sounds/
-```
+└── sounds/```
 
 ## Privacy
  
